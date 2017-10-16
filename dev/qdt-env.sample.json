@@ -1,0 +1,33 @@
+{
+    "server": {
+        "enabled": true,
+        "platform": ["zuidhorn-front-api-testing", "zuidhorn-front-winkelier", "zuidhorn-front-shopkeeper"],
+        "watch_platforms": "all"
+    },
+    "platforms": {
+        "enabled": ["panel-html", "panel", "zuidhorn-front-api-testing", "zuidhorn-front-winkelier", "zuidhorn-front-shopkeeper"]
+    },
+    "platforms_data": {
+        "zuidhorn-front-shopkeeper": {
+            "html5Mode": {
+                "enable": true,
+                "basePath": "/"
+            },
+            "apiUrl": "http://mvp.forus.io/api"
+        },
+        "zuidhorn-front-winkelier": {
+            "html5Mode": {
+                "enable": true,
+                "basePath": "/"
+            },
+            "apiUrl": "http://mvp.forus.io/client/api"
+        },
+        "zuidhorn-front-api-testing": {
+            "html5Mode": {
+                "enable": true,
+                "basePath": "/"
+            },
+            "apiUrl": "http://mvp.forus.io/api"
+        }
+    }
+}
