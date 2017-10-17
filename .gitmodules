@@ -1,0 +1,12 @@
+[submodule "kindpakket-website"]
+	path = kindpakket-website
+	url = git@github.com:/teamforus/zuidhorn-front-winkelier
+	branch = testing
+[submodule "kindpakket-shopkeeper-panel"]
+	path = kindpakket-shopkeeper-panel
+	url = git@github.com:/teamforus/zuidhorn-front-shopkeeper
+	branch = testing
+[submodule "oauth-testing-html"]
+	path = oauth-testing-html
+	url = git@github.com:/teamforus/zuidhorn-front-api-testing
+	branch = testing
