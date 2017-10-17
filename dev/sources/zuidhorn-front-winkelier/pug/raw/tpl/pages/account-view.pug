@@ -7,9 +7,9 @@ header.section.section-header: .wrapper
                     span Budget &nbsp; 
                     strong €
                     strong(ng-bind="$root.targetVoucher.funds")
-                a(ui-sref="account").button.button-white
-                    span.mdi.mdi-account
-                    | Mijn Account
+                a(ui-sref="landing").button.button-white
+                    span.mdi.mdi-shopping
+                    | Webshop
             a(href="#" ng-click="$root.auth.signOut($event)").button.button-primary
                 em.mdi.mdi-logout
                 | Logout
@@ -56,8 +56,8 @@ header.section.section-header: .wrapper
         .table-responsive: table.table.table-stripped
             thead: tr
                 th Datum
-                th Vouchercode
-                th Welke telefoon 
+                th Winkel
+                th Categorie 
                 th Bedrag
                 th Status
             tbody

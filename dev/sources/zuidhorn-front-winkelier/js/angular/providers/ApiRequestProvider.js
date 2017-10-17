@@ -12,12 +12,14 @@ kindpakketApp.provider('ApiRequest', function() {
         this.$get = [
             '$q',
             '$http',
+            '$state',
             '$rootScope',
             'DeviceIdService',
             'CredentialsService',
             function(
                 $q,
                 $http,
+                $state,
                 $rootScope,
                 DeviceIdService,
                 CredentialsService
@@ -36,7 +38,7 @@ kindpakketApp.provider('ApiRequest', function() {
                 }
 
                 var makeHeaders = function() {
-                    var credentails = JSON.parse(localStorage.getItem('credentails'));
+                    var credentails = CredentialsService.get();
 
                     return {
                         'Accept': 'application/json',
