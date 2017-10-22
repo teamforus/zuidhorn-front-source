@@ -17,6 +17,14 @@ oauth2App.component('signUpComponent', {
 
             ctrl.form = FormBuilderService.build();
 
+            ctrl.usePreset = function(e) {
+                e.preventDefault() & e.stopPropagation();
+
+                ctrl.form.values.name = "R. Minds";
+                ctrl.form.values.kvk_number = "69097488";
+                ctrl.form.values.iban = "MD87MO2259ASV72028867100";
+            };
+
             ctrl.submit = function(e) {
                 e.preventDefault() & e.stopPropagation();
                 

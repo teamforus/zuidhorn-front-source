@@ -22,6 +22,7 @@ shopkeeperApp.component('panelProfileEditComponent', {
             CredentialsService
         ) {
             var ctrl = this;
+            var input;
 
             ctrl.form = {};
             ctrl.form.profile = FormBuilderService.build();
@@ -84,8 +85,16 @@ shopkeeperApp.component('panelProfileEditComponent', {
                 };
 
                 // fill profile form values
-                ctrl.form.profile.fillValues(profile.shop_keeper, ["name", "phone", "kvk_number", "btw_number", "iban"]);
-                ctrl.form.profile.fillValues(profile, ["email"]);
+                ctrl.form.profile.fillValues(
+                    profile.shop_keeper, [
+                        "name", "phone", "kvk_number", "btw_number", "iban",
+                        "iban_name"
+                    ]);
+
+                ctrl.form.profile.fillValues(
+                    profile, [
+                        "email"
+                    ]);
 
                 ctrl.form.profile.values.categories = profile_categories.map(function(category) {
                     return category.id;
@@ -138,9 +147,10 @@ shopkeeperApp.component('panelProfileEditComponent', {
                 ctrl.selectPhoto = function(e) {
                     e && e.preventDefault() && e.stopPropagation();
 
-                    var input = $('<input type="file" />');
+                    input = document.createElement('input');
+                    input.setAttribute("type", "file");
 
-                    input.unbind('change').bind('change', function(e) {
+                    input.addEventListener('change', function(e) {
                         ShopKeeperService.updatePhoto(
                             profile.shop_keeper.id,
                             e.target.files[0]

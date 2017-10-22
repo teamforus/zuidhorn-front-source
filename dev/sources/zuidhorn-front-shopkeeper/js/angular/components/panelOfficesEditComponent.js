@@ -24,6 +24,7 @@ shopkeeperApp.component('panelOfficesEditComponent', {
             CredentialsService
         ) {
             var ctrl = this;
+            var input;
 
             ctrl.form = {};
             ctrl.form.office = FormBuilderService.build();
@@ -87,9 +88,10 @@ shopkeeperApp.component('panelOfficesEditComponent', {
                     ctrl.selectPhoto = function(e) {
                         e && e.preventDefault() && e.stopPropagation();
 
-                        var input = $('<input type="file" />');
+                        input = document.createElement('input');
+                        input.setAttribute("type", "file");
 
-                        input.unbind('change').bind('change', function(e) {
+                        input.addEventListener('change', function(e) {
                             OfficeService.updatePhoto(
                                 office.id,
                                 e.target.files[0]

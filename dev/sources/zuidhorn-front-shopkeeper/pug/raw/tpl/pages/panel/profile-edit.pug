@@ -18,11 +18,16 @@
         form(ng-submit="$ctrl.submitForm($event, $ctrl.form.profile)").form.form-sm
             .row: .col.col-12: .form-heading Details
             .row
-                .col.col-12
+                .col.col-6
                     .form-group
                         label.label Company Name
                         input(type="text" placeholder="Company Name" ng-model="$ctrl.form.profile.values.name").form-control
                         p(ng-repeat="error in $ctrl.form.profile.errors.name track by $index" ng-bind="error").text-danger
+                .col.col-6
+                    .form-group
+                        label.label IBAN Name
+                        input(type="text" placeholder="IBAN Name" ng-model="$ctrl.form.profile.values.iban_name").form-control
+                        p(ng-repeat="error in $ctrl.form.profile.errors.iban_name track by $index" ng-bind="error").text-danger
             .row
                 .col.col-6
                     .form-group
