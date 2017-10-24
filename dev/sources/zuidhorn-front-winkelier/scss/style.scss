@@ -1570,21 +1570,30 @@ table.table {
 
                 .voucher-info-view-content {
                     width: 50%;
+                    padding: 0;
+                    width: 100%;
+                    float: none;
+                    margin: auto;
+                    max-width: 350px;
 
                     .inner {
                         padding: 15px;
+                        height: auto;
+                        @include cf();
 
                         .voucher-content-code {
                             width: 100%;
-                            margin-bottom: 20px;
+                            float: none;
+                            margin: 0 auto 20px;
                         }
 
                         .voucher-content-title {
-                            display: none;
-                            font: 600 14px/25px $bf;
+                            width: 100%;
+                            font: 600 15px/30px $bf;
                             text-align: center;
                             border-bottom: 0;
                             margin-bottom: 20px;
+                            float: none;
 
                             .mdi {
                                 display: none;
@@ -1592,42 +1601,31 @@ table.table {
                         }
 
                         .voucher-content-amount {
+                            text-align: center;
+                            width: 100%;
+                            float: none;
+
                             .voucher-content-amount-title {
-                                font: 700 11px/22px $bf;
+                                font: 700 10px/20px $bf;
                             }
 
                             .voucher-content-amount-value {
-                                font: 700 26px/32px $bf;
+                                font: 700 40px/50px $bf;
                             }
                         }
+
+                        &:after {
+                            display: none;
+                        }
+                    }
+
+                    &:before, &:after {
+                        display: none;
                     }
                 }
 
                 .voucher-info-view-aside {
-                    width: 50%;
-
-                    .inner {
-                        .voucher-info-view-aside-actions {
-                            .button {
-                                font-size: 10px;
-                                padding-left: 10px;
-                                padding-right: 10px;
-                                text-align: center;
-
-                                .mdi {
-                                    display: block;
-                                    line-height: 16px;
-                                    padding-top: 10px;
-                                    font-size: 24px;
-                                    margin: 0;
-                                }
-
-                                &:first-child {
-                                    display: none;
-                                }
-                            }
-                        }
-                    }
+                    display: none;
                 }
             }
         }

@@ -33,26 +33,6 @@ header.section.section-header: .wrapper
             span Leer meer over hoe het
             span systeem werkt
 
-.section.section-categories
-    .wrapper
-        h1.section-header Door te klikken op de blokken zoekt u de winkels die meedoen aan het systee
-
-        .categories-list
-            .categories-list-inner
-                .categories-item(ng-repeat="category in $ctrl.categories track by $index")
-                    .categories-item-inner(ng-class="{active: category.selected}" ng-click="$ctrl.selectCategory($event, category)")
-                        img(ng-src="{{ category.preview }}" alt="").categories-item-img
-                        .categories-item-radio
-                        div(ng-bind="category.name").categories-item-title
-            
-            .categories-list-actions
-                a(href="#" ng-click="$ctrl.selectAll($event)").button.button-primary
-                    em.mdi.mdi-chevron-double-right
-                    | Selecteer alles
-                a(href="#" ng-click="$ctrl.updateOfficesCategory($event)").button.button-success
-                    em.mdi.mdi-magnify
-                    | Filter
-
 .section.section-offices
     .section-offices-list
         .section-offices-list-header
@@ -79,6 +59,26 @@ header.section.section-header: .wrapper
                                 | {{ schedule.start_time }}-{{ schedule.end_time }}{{ $index < location.schedules.length - 1 ? ',' : '' }} 
 
     .section-offices-map(google-map)
+
+.section.section-categories
+    .wrapper
+        h1.section-header Door te klikken op de blokken zoekt u de winkels die meedoen aan het systee
+
+        .categories-list
+            .categories-list-inner
+                .categories-item(ng-repeat="category in $ctrl.categories track by $index")
+                    .categories-item-inner(ng-class="{active: category.selected}" ng-click="$ctrl.selectCategory($event, category)")
+                        img(ng-src="{{ category.preview }}" alt="").categories-item-img
+                        .categories-item-radio
+                        div(ng-bind="category.name").categories-item-title
+            
+            .categories-list-actions
+                a(href="#" ng-click="$ctrl.selectAll($event)").button.button-primary
+                    em.mdi.mdi-chevron-double-right
+                    | Selecteer alles
+                a(href="#" ng-click="$ctrl.updateOfficesCategory($event)").button.button-success
+                    em.mdi.mdi-magnify
+                    | Filter
 
 .section.section-how-it-works
     .bg-image

@@ -87,8 +87,7 @@ shopkeeperApp.component('panelProfileEditComponent', {
                 // fill profile form values
                 ctrl.form.profile.fillValues(
                     profile.shop_keeper, [
-                        "name", "phone", "kvk_number", "btw_number", "iban",
-                        "iban_name"
+                        "name", "phone", "kvk_number", "btw_number", "iban_name"
                     ]);
 
                 ctrl.form.profile.fillValues(
