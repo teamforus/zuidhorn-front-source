@@ -1,6 +1,7 @@
 # Generated in development files #
 /dev/package-lock.json
 /dev/qdt-env.json
+/dev/qdt-env.*.json
 
 # compiled by qdt
 /html
