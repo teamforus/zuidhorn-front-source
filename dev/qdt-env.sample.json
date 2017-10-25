@@ -13,7 +13,7 @@
                 "enable": true,
                 "basePath": "/"
             },
-            "apiUrl": "http://mvp.forus.io/api",
+            "apiUrl": "https://forus-backend.forus.io/api",
             "credentials_key": "zuidhorn-front-shopkeeper-credentials"
         },
         "zuidhorn-front-winkelier": {
@@ -21,7 +21,7 @@
                 "enable": true,
                 "basePath": "/"
             },
-            "apiUrl": "http://mvp.forus.io/client/api",
+            "apiUrl": "https://forus-backend.forus.io/client/api",
             "credentials_key": "zuidhorn-front-winkelier-credentials"
         },
         "zuidhorn-front-api-testing": {
@@ -29,7 +29,7 @@
                 "enable": true,
                 "basePath": "/"
             },
-            "apiUrl": "http://mvp.forus.io/api",
+            "apiUrl": "https://forus-backend.forus.io/api",
             "credentials_key": "zuidhorn-front-api-testing-credentials"
         }
     }
