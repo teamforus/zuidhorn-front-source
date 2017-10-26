@@ -13,24 +13,24 @@
                 "enable": true,
                 "basePath": "/"
             },
-            "apiUrl": "https://forus-backend.forus.io/api",
+            "apiUrl": "http://test.api.zuidhorn.forus.io",
             "credentials_key": "zuidhorn-front-shopkeeper-credentials"
-        },
-        "zuidhorn-front-winkelier": {
-            "html5Mode": {
-                "enable": true,
-                "basePath": "/"
-            },
-            "apiUrl": "https://forus-backend.forus.io/client/api",
-            "credentials_key": "zuidhorn-front-winkelier-credentials"
         },
         "zuidhorn-front-api-testing": {
             "html5Mode": {
                 "enable": true,
                 "basePath": "/"
             },
-            "apiUrl": "https://forus-backend.forus.io/api",
+            "apiUrl": "http://test.api.zuidhorn.forus.io",
             "credentials_key": "zuidhorn-front-api-testing-credentials"
+        },
+        "zuidhorn-front-winkelier": {
+            "html5Mode": {
+                "enable": true,
+                "basePath": "/"
+            },
+            "apiUrl": "http://test.api.zuidhorn.forus.io/client",
+            "credentials_key": "zuidhorn-front-winkelier-credentials"
         }
     }
 }
