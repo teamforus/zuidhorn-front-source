@@ -1,11 +1,11 @@
 [submodule "zuidhorn-front-kindpakket"]
-	path = zuidhorn-front-winkelier
+	path = zuidhorn-front-kindpakket
 	url = git@github.com:/teamforus/zuidhorn-front-kindpakket
 	branch = testing
 [submodule "zuidhorn-front-winkelier"]
-        path = zuidhorn-front-shopkeeper
-        url = git@github.com:/teamforus/zuidhorn-front-winkelier
-        branch = testing
+	path = zuidhorn-front-winkelier
+	url = git@github.com:/teamforus/zuidhorn-front-winkelier
+	branch = testing
 [submodule "zuidhorn-front-api-testing"]
 	path = zuidhorn-front-api-testing
 	url = git@github.com:/teamforus/zuidhorn-front-api-testing

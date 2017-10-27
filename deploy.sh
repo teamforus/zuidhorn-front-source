@@ -40,7 +40,7 @@ fi
 echo "Pushing all front-ends for $1"
 
 run_for_folder "zuidhorn-front-api-testing" $1
-run_for_folder "zuidhorn-front-shopkeeper" $1
+run_for_folder "zuidhorn-front-kindpakket" $1
 run_for_folder "zuidhorn-front-winkelier" $1
 
 echo "Done"

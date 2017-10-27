@@ -101,7 +101,7 @@
                 "underscore.string": false,
                 "mdi": true
             },
-            "source": "zuidhorn-front-api-kindpakket",
+            "source": "zuidhorn-front-api-testing",
             "paths": {
                 "root": "../zuidhorn-front-api-testing",
                 "assets_root": "../zuidhorn-front-api-testing/assets",
@@ -213,7 +213,7 @@
                 "port": 3500
             }
         },
-        "zuidhorn-front-shopkeeper": {
+        "zuidhorn-front-kindpakket": {
             "libs": {
                 "jquery": true,
                 "bootstrap_3": false,
@@ -245,12 +245,12 @@
                 "from": "../../node_modules/core-js/client/core.min.js",
                 "to": "assets/dist/core-js"
             }],
-            "source": "zuidhorn-front-shopkeeper",
+            "source": "zuidhorn-front-kindpakket",
             "paths": {
-                "root": "../zuidhorn-front-shopkeeper",
-                "assets_root": "../zuidhorn-front-shopkeeper/assets",
+                "root": "../zuidhorn-front-kindpakket",
+                "assets_root": "../zuidhorn-front-kindpakket/assets",
                 "clean_paths": [
-                    "../zuidhorn-front-shopkeeper"
+                    "../zuidhorn-front-kindpakket"
                 ]
             },
             "tasks": {

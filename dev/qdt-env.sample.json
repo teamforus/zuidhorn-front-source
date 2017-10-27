@@ -1,20 +1,20 @@
 {
     "server": {
         "enabled": true,
-        "platform": ["zuidhorn-front-api-testing", "zuidhorn-front-winkelier", "zuidhorn-front-shopkeeper"],
+        "platform": ["zuidhorn-front-api-testing", "zuidhorn-front-winkelier", "zuidhorn-front-kindpakket"],
         "watch_platforms": "all"
     },
     "platforms": {
-        "enabled": ["panel-html", "panel", "zuidhorn-front-api-testing", "zuidhorn-front-winkelier", "zuidhorn-front-shopkeeper"]
+        "enabled": ["panel-html", "panel", "zuidhorn-front-api-testing", "zuidhorn-front-winkelier", "zuidhorn-front-kindpakket"]
     },
     "platforms_data": {
-        "zuidhorn-front-shopkeeper": {
+        "zuidhorn-front-kindpakket": {
             "html5Mode": {
                 "enable": true,
                 "basePath": "/"
             },
             "apiUrl": "http://api.zuidhorn.forus.io",
-            "credentials_key": "zuidhorn-front-shopkeeper-credentials"
+            "credentials_key": "zuidhorn-front-kindpakket-credentials"
         },
         "zuidhorn-front-api-testing": {
             "html5Mode": {
