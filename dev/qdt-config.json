@@ -101,7 +101,7 @@
                 "underscore.string": false,
                 "mdi": true
             },
-            "source": "zuidhorn-front-api-testing",
+            "source": "zuidhorn-front-api-kindpakket",
             "paths": {
                 "root": "../zuidhorn-front-api-testing",
                 "assets_root": "../zuidhorn-front-api-testing/assets",
