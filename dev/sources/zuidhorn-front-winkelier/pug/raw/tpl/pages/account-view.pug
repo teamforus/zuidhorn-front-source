@@ -4,7 +4,7 @@ header.section.section-header: .wrapper
         .section-header-actions
             .button-group
                 .button.button-white.disabled
-                    span Budget &nbsp; 
+                    span Huidige Budget &nbsp; 
                     strong €
                     strong(ng-bind="$root.targetVoucher.funds")
                 a(ui-sref="landing").button.button-white
@@ -18,7 +18,7 @@ header.section.section-header: .wrapper
         .section-header-actions
             a(href="#" ng-click="$root.auth.activateVoucher($event)").button.button-success
                 em.mdi.mdi-ticket-confirmation
-                | Activate voucher
+                | Activatiecode
             a(href="#" ng-click="$root.auth.signIn($event)").button.button-white
                 em.mdi.mdi-account
                 | Login
@@ -32,7 +32,7 @@ header.section.section-header: .wrapper
                 .voucher-content-code: img(ng-src="{{$ctrl.qrCode}}", alt="") 
                 .voucher-content-title 
                     em.mdi.mdi-ticket-confirmation
-                    | Jouw Voucher Code
+                    | Mijn Voucher Code
                 .voucher-content-amount 
                     .voucher-content-amount-title HUIDIG BUDGET
                     .voucher-content-amount-value 
@@ -46,12 +46,12 @@ header.section.section-header: .wrapper
                         | Print Voucher
                     a(href="#" ng-click="$ctrl.sendQrCodeEmail($event)").button.button-white
                         span.mdi.mdi-email
-                        | Stuur per mail
+                        | Stuur per e-mail
 
 
 
 .section.section-container: .wrapper 
-    .section.section-title Transaction ({{ $ctrl.transactions.length }})
+    .section.section-title Transacties ({{ $ctrl.transactions.length }})
     .section.section-panel
         .table-responsive: table.table.table-stripped
             thead: tr

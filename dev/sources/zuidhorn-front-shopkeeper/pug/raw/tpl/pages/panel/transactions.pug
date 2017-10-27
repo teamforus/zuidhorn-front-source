@@ -16,7 +16,7 @@
                         td
                             strong € 
                             strong {{ transaction.amount | number_format:2 }}
-                        td(ng-bind="transaction.status | uc_first")
+                        td(ng-bind="{success: 'Succes', refund: 'Retour'}[transaction.status] || transaction.status")
 
     .section.section-panel(ng-show="$ctrl.transactions.length == 0")
-        h4.text-center No transactions
+        h4.text-center Geen transacties

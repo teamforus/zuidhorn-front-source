@@ -8,35 +8,63 @@ div(auth-by-qr-code)
             .download-col
                 .download-inner
                     h1 
-                        | De app wordt momenteel 
+                        | De app is momenteel 
                         br 
-                        | alleen uitgeven via IOS
+                        | alleen beschikbaar voor iOS
                     a(href="#").button.button-app-store
                         em.mdi.mdi-apple
                         .button-body
-                            span Download it fron
+                            span Download de app vanuit de
                             strong APP STORE
             .download-col
                 img(src="./assets/img/ios-mockup.png")
 
-.section.section-faq
-    .faq-inner(tabulation)
-        .faq-tabs: .faq-tabs-inner
-            h4.faq-tabs-title Veel gestelde vragen
-            a(href="#" tabulation-tab="1").faq-tab Lorem ipsum dolor sit amet
-            a(href="#" tabulation-tab="2").faq-tab Excepteur sint occaecat cupidatat non proident, sunt in culpa
-            a(href="#" tabulation-tab="3").faq-tab Numquam eius modi tempora incidunt
-            a(href="#" tabulation-tab="4").faq-tab Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit
-        .faq-panes: .faq-panes-inner
-            -var i = 0;
-
-            while i++ < 5
-                .faq-pane(tabulation-pane=i)
-                    h4 ##{i} nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit
-                    p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-
-                    p Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo
-
-                    p Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+.section.section-faq: .wrapper
+    mixin faq_item(nth, title, message)
+        .faq-ul-li
+            .faq-ul-li-title(tabulation-tab=nth) 
+                | #{title}
+                em.mdi.mdi-chevron-down
+                em.icon-active.mdi.mdi-chevron-up
+            .faq-ul-li-content(tabulation-pane=nth) #{message}
+    .faq
+        .faq-heading Veel gestelde vragen
+        .faq-ul(tabulation)
+            +faq_item(1, 
+                "Wanneer is de Android App beschikbaar?", 
+                "De Android App is in ontwikkeling en zal begin 2018 beschikbaar zijn.")
+            +faq_item(2, 
+                "Hoe kan ik mij aanmelden als winkelier?", 
+                "Neem contact op met de gemeente")
+            +faq_item(3, 
+                "De winkeliersapp doet het niet.", 
+                "Neem contact op met de gemeente")
+            +faq_item(4, 
+                "De klant wil iets ruilen/retourneren. Kan dat?", 
+                "U bepaalt zelf als winkelier of er iets geruild of geretourneerd kan worden.")
+            +faq_item(5, 
+                "Klant wil de voucher omruilen voor contant geld. Kan dat?", 
+                "Nee, dat kan niet. ")
+            +faq_item(6, 
+                "Ik wil als ondernemer aansluiten bij het kindpakket. Hoe doe ik dat?", 
+                "Neem contact op met de gemeente")
+            +faq_item(7, 
+                "Klant wil met de voucher spullen kopen voor volwassenen. Wat moet ik doen? ", 
+                "U mag de klant daarop aanspreken. De voucher is bedoeld om spullen voor kinderen te kopen. ")
+            +faq_item(8, 
+                "De klant heeft onvoldoende budget om spullen te kopen. Wat nu? ", 
+                "De klant mag altijd zelf het verschil bij betalen. ")
+            +faq_item(9, 
+                "Kan ik de voucher ook omruilen voor contant geld?", 
+                "Nee, u krijgt de waarde van de voucher niet in contant geld uitbetaald.")
+            +faq_item(10, 
+                "Wanneer ontvang ik mijn geld?", 
+                "Het bedrag van de gekochte spullen staat de volgende werkdag op uw rekening bijgeschreven. ")
+            +faq_item(11, 
+                "De klant brengt iets retour. Hoe kan ik dat bedrag aan de gemeente terugbetalen?", 
+                "Met een ideal betaling betaalt u het bedrag terug of u maakt het bedrag over aan de gemeente Zuidhorn. ")
+            +faq_item(12, 
+                "Hoe lang is de voucher geldig?", 
+                "De voucher is vanaf 1 november 2017 1 jaar geldig.")
 
 div(contact-form)

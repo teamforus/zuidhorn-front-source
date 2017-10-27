@@ -38,7 +38,7 @@
                         input(type="text" placeholder="Address" ng-model="$ctrl.form.office.values.address").form-control
                         p(ng-repeat="error in $ctrl.form.office.errors.address track by $index" ng-bind="error").text-danger
 
-            .row: .col.col-12: .form-heading Opening times
+            .row: .col.col-12: .form-heading Openingstijden
             .row
                 .col.col-5th(ng-repeat="week_day in [0, 1, 2, 3, 4]"): .form-group
                     label.label {{ ['MO', 'TU', 'WE', 'TH', 'FR'][$index] }}
