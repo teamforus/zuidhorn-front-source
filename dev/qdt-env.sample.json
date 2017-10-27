@@ -13,7 +13,7 @@
                 "enable": true,
                 "basePath": "/"
             },
-            "apiUrl": "http://api.zuidhorn.forus.io",
+            "apiUrl": "http://api.zuidhorn.forus.io/client",
             "credentials_key": "zuidhorn-front-kindpakket-credentials"
         },
         "zuidhorn-front-api-testing": {
@@ -29,7 +29,7 @@
                 "enable": true,
                 "basePath": "/"
             },
-            "apiUrl": "http://api.zuidhorn.forus.io/client",
+            "apiUrl": "http://api.zuidhorn.forus.io",
             "credentials_key": "zuidhorn-front-winkelier-credentials"
         }
     }
