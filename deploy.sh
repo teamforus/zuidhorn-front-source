@@ -20,14 +20,14 @@ function build() {
 
 	# Push source and build repos.
 	echo -e "Pushing..."
-	git push origin testing
+	git push origin $2
 }
 
 function run_for_folder() {
 	echo "Building $1 for $2..."
 	cd $1
 	git checkout $2
-	build
+	build $2
 	cd ..
 }
 
