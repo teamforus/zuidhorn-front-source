@@ -29,7 +29,7 @@
                 "enable": true,
                 "basePath": "/"
             },
-            "apiUrl": "https://test.forus-backend.forus.io",
+            "apiUrl": "https://test.api.forus-backend.forus.io",
             "credentials_key": "zuidhorn-front-api-testing-credentials"
         }
     }
