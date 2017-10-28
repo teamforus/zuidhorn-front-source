@@ -1,0 +1,36 @@
+{
+    "server": {
+        "enabled": true,
+        "platform": ["zuidhorn-front-api-testing", "zuidhorn-front-winkelier", "zuidhorn-front-kindpakket"],
+        "watch_platforms": "all"
+    },
+    "platforms": {
+        "enabled": ["panel-html", "panel", "zuidhorn-front-api-testing", "zuidhorn-front-winkelier", "zuidhorn-front-kindpakket"]
+    },
+    "platforms_data": {
+        "zuidhorn-front-kindpakket": {
+            "html5Mode": {
+                "enable": true,
+                "basePath": "/"
+            },
+            "apiUrl": "https://test.api.zuidhorn.forus.io/client",
+            "credentials_key": "zuidhorn-front-kindpakket-credentials"
+        },
+        "zuidhorn-front-winkelier": {
+            "html5Mode": {
+                "enable": true,
+                "basePath": "/"
+            },
+            "apiUrl": "https://test.api.zuidhorn.forus.io",
+            "credentials_key": "zuidhorn-front-winkelier-credentials"
+        },
+        "zuidhorn-front-api-testing": {
+            "html5Mode": {
+                "enable": true,
+                "basePath": "/"
+            },
+            "apiUrl": "https://test.forus-backend.forus.io",
+            "credentials_key": "zuidhorn-front-api-testing-credentials"
+        }
+    }
+}
