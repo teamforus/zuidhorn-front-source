@@ -11,7 +11,7 @@
         "zuidhorn-front-kindpakket": {
             "html5Mode": {
                 "enable": true,
-                "basePath": "kindpakket/"
+                "basePath": "/"
             },
             "apiUrl": "http://api.zuidhorn.forus.io/client",
             "credentials_key": "zuidhorn-front-kindpakket-credentials"
