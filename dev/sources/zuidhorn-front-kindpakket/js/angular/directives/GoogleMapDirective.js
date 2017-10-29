@@ -28,9 +28,10 @@ kindpakketApp.directive('googleMap', [
 
                     var mapOptions = {
                         zoom: zoomLevel,
-                        disableDefaultUI: true,
+                        disableDefaultUI: false,
                         center: office ? new google.maps.LatLng(office.lat, office.lon) : new google.maps.LatLng(-33.92, 151.25),
                         scrollwheel: true,
+                        fullscreenControl: false,
                         mapTypeControlOptions: {
                             mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
                         }

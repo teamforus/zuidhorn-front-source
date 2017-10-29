@@ -27,13 +27,19 @@
             $tabs.unbind('click').bind('click', function(e) {
                 e.preventDefault() && e.stopPropagation();
 
+                var wasActive = $(this).hasClass('active');
+
                 $panes.removeClass('active');
                 $tabs.removeClass('active');
 
-                $root.find('[tabulation-pane="' + $(this).attr('tabulation-tab') + '"]')
-                    .addClass('active');
+                var activeIndex = $(this).attr('tabulation-tab');
 
-                $(this).addClass('active');
+                if (!wasActive) {
+                    $root.find(
+                        '[tabulation-pane="' + activeIndex + '"]').addClass('active');
+                    $(this).addClass('active');
+                }
+
             });
 
             $tabs[0].click();

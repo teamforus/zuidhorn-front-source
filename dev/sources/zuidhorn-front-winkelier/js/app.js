@@ -1,22 +1,4 @@
 (function($) {
-    $.prototype.slowScroll = function() {
-        if (this.length == 0) return;
-
-        var slowScroll = function($root) {
-            var target = $root.attr('href');
-
-            $root.unbind('click').bind('click', function() {
-                $('html, body').animate({
-                    scrollTop: $(target).offset().top
-                }, 1600);
-            });
-        };
-
-        for (var i = 0; i < this.length; i++) {
-            new slowScroll($(this[i]));
-        }
-    };
-
     $.prototype.tabulation = function() {
         if (this.length == 0) return;
 
@@ -27,13 +9,19 @@
             $tabs.unbind('click').bind('click', function(e) {
                 e.preventDefault() && e.stopPropagation();
 
+                var wasActive = $(this).hasClass('active');
+
                 $panes.removeClass('active');
                 $tabs.removeClass('active');
 
-                $root.find('[tabulation-pane="' + $(this).attr('tabulation-tab') + '"]')
-                    .addClass('active');
+                var activeIndex = $(this).attr('tabulation-tab');
 
-                $(this).addClass('active');
+                if (!wasActive) {
+                    $root.find(
+                        '[tabulation-pane="' + activeIndex + '"]').addClass('active');
+                    $(this).addClass('active');
+                }
+
             });
 
             $tabs[0].click();
@@ -43,9 +31,6 @@
             new tabulation($(this[i]));
         }
     };
-
-    $('[slow-scroll]').slowScroll();
-    $(".nano").nanoScroller();
 
     moment.locale('nl');
 })(jQuery);
