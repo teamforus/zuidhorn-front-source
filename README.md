@@ -30,3 +30,15 @@ Re-deploy:
 2. run `../deploy.sh`. It automatically publish the changes
 
 
+
+All frontends are Single page applications and use javascript routing, to enable html5 mode (without /!#!/ symbols in url) you should add following code to apache2 configuration for the domain.
+```
+RewriteEngine On  
+# If an existing asset or directory is requested go to it as it is
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]  
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d  
+RewriteRule ^ - [L]
+
+# If the requested resource doesn't exist, use index.html
+RewriteRule ^ /index.html
+```
