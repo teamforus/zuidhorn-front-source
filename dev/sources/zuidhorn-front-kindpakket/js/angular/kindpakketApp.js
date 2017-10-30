@@ -28,6 +28,41 @@ kindpakketApp.config(['$stateProvider', '$locationProvider', function($stateProv
                 title: "Account"
             }
         });
+
+    $stateProvider
+        .state({
+            url: '/activate-voucher/{activation_token}',
+            name: 'activate-voucher',
+            controller: ['$scope', '$state', '$rootScope', 'AuthService', 'CredentialsService', function($scope, $state, $rootScope, AuthService, CredentialsService) {
+                console.log($state.params.activation_token);
+                AuthService.activateVoucherToken($state.params.activation_token)
+                    .then(function(response) {
+                        CredentialsService.set(response.data);
+                        $state.go('landing');
+                        $rootScope.credentials = CredentialsService.get();
+                    }, function(response) {
+                        alert(response.data.message);
+                        $state.go('landing');
+                    });
+            }]
+        });
+
+    $stateProvider
+        .state({
+            url: '/sign-in/{token}',
+            name: 'sign-in',
+            controller: ['$scope', '$state', '$rootScope', 'AuthService', 'CredentialsService', function($scope, $state, $rootScope, AuthService, CredentialsService) {
+                AuthService.signInByToken($state.params.token)
+                    .then(function(response) {
+                        CredentialsService.set(response.data);
+                        $rootScope.credentials = CredentialsService.get();
+                        $state.go('landing');
+                    }, function(response) {
+                        alert(JSON.stringify(response.data, null, '    '));
+                        $state.go('landing');
+                    });
+            }]
+        });
 }]);
 
 if (!env_data.html5Mode.enable)

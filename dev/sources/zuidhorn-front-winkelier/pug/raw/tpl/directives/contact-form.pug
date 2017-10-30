@@ -33,7 +33,7 @@
                         .row
                             .col.col-12: .form-group
                                 label.label Bericht
-                                textarea(name="message" placeholder="Message" cols="30" rows="3" ng-model="forms.contact_form.values.message").form-control
+                                textarea(name="message" placeholder="Bericht" cols="30" rows="3" ng-model="forms.contact_form.values.message").form-control
                                 p(ng-repeat="error in forms.contact_form.errors.message track by $index" ng-bind="error").text-danger
                     
                         a(type="submit" ng-click="submitContactForm($event, forms.contact_form)" href="#").button.button-success.submit-button Verstuur Bericht

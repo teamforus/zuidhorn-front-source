@@ -52,22 +52,14 @@ kindpakketApp.controller('BaseController', [
 
             form.submit = true;
 
-            AuthService.signIn(form.values).then(function(response) {
-                CredentialsService.set(response.data);
-                $rootScope.credentials = CredentialsService.get();
-                $rootScope.targetVoucher = AuthService.getVoucher();
-                $rootScope.auth.closeModals();
-                form.submit = false;
-
-                if ($rootScope.credentials) {
-                    AuthService.getVoucher().then(function(response) {
-                        $rootScope.targetVoucher = response.data;
-                    });
-                }
-            }, function(response) {
-                form.errors.email = ["Wrong E-mail or password!"];
-                form.submit = false;
-            });
+            AuthService.sendSignInToken(form.values.email)
+                .then(function(response) {
+                    $rootScope.auth.closeModals();
+                    form.submit = false;
+                }, function(response) {
+                    form.errors = response.data;
+                    form.submit = false;
+                });
         };
 
         $rootScope.auth.activateVoucher = function(e) {

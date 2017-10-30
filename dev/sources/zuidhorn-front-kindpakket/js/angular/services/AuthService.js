@@ -8,20 +8,25 @@ kindpakketApp.service('AuthService', [
         return new(function() {
             apiRequest = ApiRequest;
 
-            this.signIn = function(values) {
-                return ApiRequest.post('/../oauth/token', {
-                    'grant_type': 'password',
-                    'client_id': 2,
-                    'client_secret': 'DKbwNT3Afz8bovp0BXvJX5jWudIRRW9VZPbzieVJ',
-                    'username': values.email || '',
-                    'password': values.password || '',
-                    'scope': '*',
+            this.sendSignInToken = function(email) {
+                return ApiRequest.post('/user/send-token', {
+                    email: email
+                });
+            };
+
+            this.signInByToken = function(token) {
+                return ApiRequest.post('/user/sign-in', {
+                    token: token
                 });
             };
 
             this.activateVoucher = function(voucher, values) {
-                return ApiRequest.post('/voucher/' + voucher + '/activate', values || {
-                    here: 'here'
+                return ApiRequest.post('/voucher/' + voucher + '/activate', values);
+            };
+
+            this.activateVoucherToken = function(activation_token) {
+                return ApiRequest.post('/voucher/activate-token', {
+                    activation_token: activation_token
                 });
             };
 

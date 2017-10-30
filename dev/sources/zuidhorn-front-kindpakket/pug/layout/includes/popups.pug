@@ -10,10 +10,6 @@
                         label.label Email
                         input(type="email" placeholder="Email" ng-model="forms.login.values.email").form-control
                         p(class="text-danger" ng-repeat="error in forms.login.errors.email track by $index" ng-bind="error")
-                    .col.col-12: .form-group
-                        label.label Password
-                        input(type="password" placeholder="Password" ng-model="forms.login.values.password").form-control
-                        p(class="text-danger" ng-repeat="error in forms.login.errors.password track by $index" ng-bind="error")
                 .row
                     br
                     .col.col-12: .form-group.text-center

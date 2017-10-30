@@ -41,6 +41,7 @@ kindpakketApp.provider('ApiRequest', function() {
                     var credentails = CredentialsService.get();
 
                     return {
+                        'Locale': 'nl',
                         'Accept': 'application/json',
                         'Authorization': 'Bearer ' + (credentails ? credentails.access_token : ''),
                         'Device-Id': DeviceIdService.getDeviceId().id,
