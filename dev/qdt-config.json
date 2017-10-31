@@ -105,9 +105,7 @@
             "paths": {
                 "root": "../zuidhorn-front-api-testing",
                 "assets_root": "../zuidhorn-front-api-testing/assets",
-                "clean_paths": [
-                    "../zuidhorn-front-api-testing"
-                ]
+                "clean_paths": []
             },
             "assets": [{
                 "from": "resources/assets/**/*",
@@ -161,9 +159,7 @@
             "paths": {
                 "root": "../zuidhorn-front-winkelier",
                 "assets_root": "../zuidhorn-front-winkelier/assets",
-                "clean_paths": [
-                    "../zuidhorn-front-winkelier"
-                ]
+                "clean_paths": []
             },
             "libs": {
                 "jquery": true,
@@ -224,9 +220,7 @@
             "paths": {
                 "root": "../zuidhorn-front-kindpakket",
                 "assets_root": "../zuidhorn-front-kindpakket/assets",
-                "clean_paths": [
-                    "../zuidhorn-front-kindpakket"
-                ]
+                "clean_paths": []
             },
             "libs": {
                 "jquery": true,

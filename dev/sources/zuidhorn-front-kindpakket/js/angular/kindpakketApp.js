@@ -4,7 +4,7 @@ kindpakketApp.config(['ApiRequestProvider', function(ApiRequestProvider) {
     ApiRequestProvider.setHost(env_data.apiUrl);
 }]);
 
-kindpakketApp.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider) {
+kindpakketApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
     if (env_data.html5Mode.enable)
         $locationProvider.html5Mode(true);
 
@@ -41,7 +41,11 @@ kindpakketApp.config(['$stateProvider', '$locationProvider', function($stateProv
                         $state.go('landing');
                         $rootScope.credentials = CredentialsService.get();
                     }, function(response) {
-                        alert(response.data.message);
+                        $rootScope.modals.push({
+                            icon: ['mdi-close'],
+                            descLg: response.data.message || Object.values(response.data)[0][0] || '',
+                        });
+
                         $state.go('landing');
                     });
             }]
@@ -58,11 +62,33 @@ kindpakketApp.config(['$stateProvider', '$locationProvider', function($stateProv
                         $rootScope.credentials = CredentialsService.get();
                         $state.go('landing');
                     }, function(response) {
-                        alert(JSON.stringify(response.data, null, '    '));
+                        $rootScope.modals.push({
+                            icon: ['mdi-close'],
+                            descLg: response.data.message || Object.values(response.data)[0][0] || '',
+                        });
+
                         $state.go('landing');
                     });
             }]
         });
+
+    $stateProvider
+        .state('404', {
+            controller: ['$scope', '$state', '$rootScope', function($scope, $state, $rootScope) {
+                $rootScope.modals.push({
+                    icon: ['mdi-glasses'],
+                    title: 'Page not found.',
+                });
+                
+                $state.go('landing');
+            }]
+        });
+
+    $urlRouterProvider.otherwise(function($injector, $location) {
+        var state = $injector.get('$state');
+        state.go('404');
+        return $location.path();
+    });
 }]);
 
 if (!env_data.html5Mode.enable)

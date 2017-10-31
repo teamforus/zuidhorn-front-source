@@ -14,7 +14,9 @@
                 "basePath": "/kindpakket/"
             },
             "apiUrl": "https://test.api.zuidhorn.forus.io/client",
-            "credentials_key": "zuidhorn-front-kindpakket-credentials"
+            "credentials_key": "zuidhorn-front-kindpakket-credentials",
+            "winkelierUrl": "https://test.winkelier.forus.io/",
+            "kindpakketUrl": "https://test.zuidhorn.forus.io/kindpakket/"
         },
         "zuidhorn-front-winkelier": {
             "html5Mode": {
@@ -22,7 +24,9 @@
                 "basePath": "/"
             },
             "apiUrl": "https://test.api.zuidhorn.forus.io",
-            "credentials_key": "zuidhorn-front-winkelier-credentials"
+            "credentials_key": "zuidhorn-front-winkelier-credentials",
+            "winkelierUrl": "https://test.winkelier.forus.io/",
+            "kindpakketUrl": "https://test.zuidhorn.forus.io/kindpakket/"
         },
         "zuidhorn-front-api-testing": {
             "html5Mode": {

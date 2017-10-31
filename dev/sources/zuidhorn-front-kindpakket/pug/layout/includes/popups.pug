@@ -19,32 +19,26 @@
         .popup-backdrop(ng-click="auth.closeModals($event)")
         .popup-inner
             a(href="#" ng-click="auth.closeModals($event)").popup-close.mdi.mdi-close
-            .popup-heading Activatiecode
+            .popup-heading Activeer uw account
             form(ng-hide="forms.voucher.submit" ng-submit="auth.activateVoucherSubmit($event, forms.voucher)").form
                 .row
                     .col.col-12: .form-group
-                        label.label Voucher
-                        input(type="text" placeholder="Voucher" ng-model="forms.voucher.values.code").form-control
+                        label.label Activatiecode (zoals in de brief van de gemeente)
+                        input(type="text" placeholder="Activatiecode" ng-model="forms.voucher.values.code").form-control
                         p(class="text-danger" ng-repeat="error in forms.voucher.errors.code track by $index" ng-bind="error")
                     .col.col-12: .form-group
-                        label.label Email
-                        input(type="email" placeholder="Email" ng-model="forms.voucher.values.email").form-control
+                        label.label E-mailadres
+                        input(type="email" placeholder="E-mailadres" ng-model="forms.voucher.values.email").form-control
                         p(class="text-danger" ng-repeat="error in forms.voucher.errors.email track by $index" ng-bind="error")
+                    .col.col-12: .form-group
+                        label.label E-mailadres
+                        input(type="email" placeholder="E-mailadres" ng-model="forms.voucher.values.email_confirmation").form-control
+                        p(class="text-danger" ng-repeat="error in forms.voucher.errors.email_confirmation track by $index" ng-bind="error")
                 .row
                     br
                     .col.col-12: .form-group.text-center
-                        button(type="submit").button.button-success Submit
+                        button(type="submit").button.button-success Activeer
             div(ng-show="forms.voucher.submit").voucher-activation-loading: img(src="./assets/img/progress.gif", alt="")
-
-    .popup.popup-voucher-success
-        .popup-backdrop(ng-click="auth.closeModals($event)")
-        .popup-inner
-            a(href="#" ng-click="auth.closeModals($event)").popup-close.mdi.mdi-close
-            div.modal-success
-                .modal-success-title
-                    em.mdi.mdi-checkbox-multiple-marked-circle-outline 
-                    | Voucher Activated
-                .modal-success-desc We have sent the password to your email
 
     .popup.popup-qr-code-email-success
         .popup-backdrop(ng-click="auth.closeModals($event)")
@@ -54,3 +48,5 @@
                 .modal-success-title
                     em.mdi.mdi-checkbox-multiple-marked-circle-outline 
                     | QR-Code sent
+    
+    div(ng-repeat="modal in $root.modals.modals() track by $index" popup-modal modal="modal")
