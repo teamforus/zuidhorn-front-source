@@ -53,7 +53,7 @@ shopkeeperApp.controller('BaseController', [
             AuthService.getUser().then(function(response) {
                 $rootScope.user = response.data || {};
 
-                ShopKeeperService.getShopKeeperCategories($rootScope.user.shop_keeper.id).then(function(response) {
+                ShopKeeperService.getShopKeeperCategories().then(function(response) {
                     $rootScope.shopkeeper_categories = response.data || {};
                 });
             });

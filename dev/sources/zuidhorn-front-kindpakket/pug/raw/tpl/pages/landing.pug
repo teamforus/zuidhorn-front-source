@@ -1,6 +1,6 @@
 header.section.section-header: .wrapper
     .section-header-inner(ng-show="$root.credentials")
-        a(ui-sref="landing").logo: img(src="./assets/img/logo.png")
+        a(ui-sref="landing").logo: img(src="./assets/img/logo.svg")
         .section-header-actions
             .button-group
                 .button.button-white.disabled
@@ -14,7 +14,7 @@ header.section.section-header: .wrapper
                 em.mdi.mdi-logout
                 | Logout
     .section-header-inner(ng-show="!$root.credentials")
-        a(href="./").logo: img(src="./assets/img/logo.png", alt="")
+        a(href="./").logo: img(src="./assets/img/logo.svg", alt="")
         .section-header-actions
             a(href="#" ng-click="$root.auth.activateVoucher($event)").button.button-success
                 em.mdi.mdi-ticket-confirmation

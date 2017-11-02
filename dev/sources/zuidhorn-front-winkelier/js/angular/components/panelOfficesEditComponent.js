@@ -76,10 +76,10 @@ shopkeeperApp.component('panelOfficesEditComponent', {
                         form.lock();
 
                         OfficeService.update(office.id, form.values).then(function() {
-                            form.reset().unlock();
-
                             $scope.$emit('user:sync');
                             $state.go('panel-offices');
+
+                            form.reset().unlock();
                         }, function(response) {
                             form.fillErrors(response.data).unlock();
                         });

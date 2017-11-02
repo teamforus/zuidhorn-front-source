@@ -11,21 +11,21 @@ shopkeeperApp.service('ShopKeeperService', [
             getShopKeeper: function() {
                 return ApiRequest.get('/categories');
             },
-            getShopKeeperCategories: function(id) {
-                return ApiRequest.get('/shop-keepers/' + id + '/categories');
+            getShopKeeperCategories: function() {
+                return ApiRequest.get('/shop-keepers/categories');
             },
-            update: function(id, values) {
+            update: function(values) {
                 values._method = "PUT";
 
-                return ApiRequest.post('/shop-keepers/' + id, values);
+                return ApiRequest.post('/shop-keepers', values);
             },
-            updatePhoto: function(id, image) {
+            updatePhoto: function(image) {
                 var formData = new FormData();
 
                 formData.append('image', image);
                 formData.append('_method', 'PUT');
 
-                return ApiRequest.post('/shop-keepers/' + id + '/image', formData, {
+                return ApiRequest.post('/shop-keepers/image', formData, {
                     'Content-Type': undefined
                 });
             }

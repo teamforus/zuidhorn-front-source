@@ -721,10 +721,12 @@ table.table {
 
             .logo {
                 float: left;
-                margin-left: -30px;
+                margin-left: -10px;
+                max-width: 245px;
 
                 img {
                     width: 100%;
+                    display: block;
                 }
             }
         }
