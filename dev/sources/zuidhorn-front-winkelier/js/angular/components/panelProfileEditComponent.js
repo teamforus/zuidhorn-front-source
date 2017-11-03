@@ -147,6 +147,7 @@ shopkeeperApp.component('panelProfileEditComponent', {
 
                     input = document.createElement('input');
                     input.setAttribute("type", "file");
+                    input.setAttribute("accept", "image/*");
 
                     input.addEventListener('change', function(e) {
                         ShopKeeperService.updatePhoto(

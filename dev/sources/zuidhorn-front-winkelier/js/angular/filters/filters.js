@@ -32,7 +32,7 @@ shopkeeperApp.filter('number_format', function() {
             s[1] = s[1] || ''
             s[1] += new Array(prec - s[1].length + 1).join('0')
         }
-        
+
         return s.join(dec)
     }
 });
@@ -62,3 +62,43 @@ shopkeeperApp.filter('not_in', function() {
         return out;
     }
 });
+
+shopkeeperApp.filter('timeToInt', function() {
+    return function(_in) {
+        if (typeof _in != 'string')
+            return -1;
+
+        _in = _in.split(":");
+
+        return _in[0] * 60 + parseInt(_in[1]);
+    }
+});
+
+shopkeeperApp.filter('limitScheduleOptionBy', ['$filter', function($filter) {
+    return function(_in, _by) {
+        var _out = {};
+
+        if (_by == 'none')
+            return {'none' : _in['none']}
+
+        if ((typeof _in == 'undefined') || !_by)
+            return _in;
+
+        _by = $filter('timeToInt')(_by);
+
+        Object.values(_in).forEach(function(opt) {
+            if ($filter('timeToInt')(opt) >= _by)
+                _out[opt] = opt;
+        });
+
+        return _out;
+    }
+}]);
+
+shopkeeperApp.filter('only_working_schedule', ['$filter', function($filter) {
+    return function(_in) {
+        return _in.filter(function(schedule) {
+            return schedule.start_time;
+        });
+    }
+}]);

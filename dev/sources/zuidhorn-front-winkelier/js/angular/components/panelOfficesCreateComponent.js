@@ -4,6 +4,7 @@ shopkeeperApp.component('panelOfficesCreateComponent', {
         '$q',
         '$rootScope',
         '$state',
+        '$filter',
         '$stateParams',
         '$scope',
         'AuthService',
@@ -15,6 +16,7 @@ shopkeeperApp.component('panelOfficesCreateComponent', {
             $q,
             $rootScope,
             $state,
+            $filter,
             $stateParams,
             $scope,
             AuthService,
@@ -43,6 +45,7 @@ shopkeeperApp.component('panelOfficesCreateComponent', {
 
                 ctrl.office = office;
                 ctrl.schedule_options = {};
+                ctrl.schedule_options['none'] = 'Rustdag';
 
                 for (var i = 0; i < 24; i++) {
                     var hour = (i <= 9 ? '0' : '') + i;
@@ -66,10 +69,35 @@ shopkeeperApp.component('panelOfficesCreateComponent', {
                 }, {
                     start_time: '09:00',
                     end_time: '17:00',
+                }, {
+                    start_time: 'none',
+                    end_time: 'none',
+                }, {
+                    start_time: 'none',
+                    end_time: 'none',
                 }];
 
                 // fill profile form values
                 ctrl.form.office.fillValues(office, ["email", "phone", "address", 'schedules']);
+
+                ctrl.changeScheduleStart = function(schedules, week_day) {
+                    try {
+                        if (schedules[week_day].start_time == 'none')
+                            return schedules[week_day].end_time = 'none';
+
+                        var int_start = $filter('timeToInt')(
+                            schedules[week_day].start_time);
+
+                        var int_end = $filter('timeToInt')(
+                            schedules[week_day].end_time);
+
+                        if ((int_start > int_end) || (schedules[week_day].end_time == 'none'))
+                            schedules[week_day].end_time = schedules[week_day].start_time;
+                    } catch (e) {
+                        schedules[week_day].start_time = '09:00';
+                        schedules[week_day].end_time = '17:00';
+                    }
+                };
 
                 // submit form to api
                 ctrl.submitForm = function(e, form) {
@@ -115,6 +143,12 @@ shopkeeperApp.component('panelOfficesCreateComponent', {
                         photoForupload = e.target.files[0];
                     });
                 }
+
+                ((function(schedules) {
+                    for (var i = schedules.length - 1; i >= 0; i--) {
+                        ctrl.changeScheduleStart(schedules, i);
+                    }
+                })(ctrl.form.office.values.schedules));
             };
         }
     ]
