@@ -19,6 +19,16 @@ shopkeeperApp.component('panelOfficesComponent', {
                 OfficeService.getOffices().then(function(response) {
                     ctrl.offices = response.data;
                 }, console.log);
+
+                ctrl.deleteOffice = function(e, id) {
+                    e && (e.preventDefault() & e.stopPropagation());
+
+                    OfficeService.delete(id).then(function(response) {
+                        ctrl.$onInit();
+                    }, function() {
+                        ctrl.$onInit();
+                    })
+                }
             };
         }
     ]

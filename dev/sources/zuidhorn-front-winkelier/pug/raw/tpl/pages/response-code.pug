@@ -1,0 +1,12 @@
+.section.section-response-code
+    header.section.section-landing-header
+        a.logo(ui-sref="welcome")
+            img(src="./assets/img/logo-dark.svg", alt="Logo")
+    .wrapper: .response-code
+        .response-code-inner
+            .response-code-bg-text(ng-bind="$ctrl.$state.current.data.title_bg")
+            .response-code-icon: img(src="./assets/img/icon-access.png", alt="")
+            .response-code-title(ng-bind="$ctrl.$state.current.data.title") Access denied
+            .response-code-desc(ng-bind="$ctrl.$state.current.data.desc")
+            .response-code-actions
+                a(ui-sref="welcome").button.button-success Back to home

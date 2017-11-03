@@ -69,6 +69,10 @@ shopkeeperApp.provider('ApiRequest', function() {
                         $http(params).then(function(response) {
                             done(response);
                         }, function(response) {
+                            if (!debug && (response.status == 404)) {
+                                $state.go('404');
+                            }
+
                             if (!debug && (response.status == 401)) {
                                 if ((response.data.error == 'device-pending') ||
                                     (response.data.error == 'device-unknown'))
@@ -88,6 +92,8 @@ shopkeeperApp.provider('ApiRequest', function() {
                                     return $rootScope.$broadcast(
                                         'auth:unauthenticated', response.data);
                                 }
+
+                                $state.go('access-denied');
                             }
 
                             reject(response);

@@ -22,6 +22,12 @@ shopkeeperApp.service('OfficeService', [
                 return ApiRequest.post('/offices/' + id, values);
             };
 
+            this.delete = function(id) {
+                return ApiRequest.post('/offices/' + id, {
+                    _method: 'DELETE'
+                });
+            };
+
             this.create = function(values) {
                 return ApiRequest.post('/offices', values);
             };

@@ -79,6 +79,34 @@ shopkeeperApp.config(['$stateProvider', '$locationProvider', function($stateProv
                 title: "Transactions"
             }
         });
+
+    // Transactions crud
+    $stateProvider
+        .state({
+            url: '/access-denied',
+            name: 'access-denied',
+            component: 'responseCodeComponent',
+            data: {
+                icon: 'icon-access.png',
+                title: "Access denied",
+                title_bg: 'ACCESS DENIED',
+                desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.",
+            }
+        });
+
+    // Transactions crud
+    $stateProvider
+        .state({
+            url: '/404',
+            name: '404',
+            component: 'responseCodeComponent',
+            data: {
+                icon: 'icon-404.png',
+                title: "Ooops... 404",
+                title_bg: 'PAGE NOT FOUND',
+                desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.",
+            }
+        });
 }]);
 
 if (!env_data.html5Mode.enable)
