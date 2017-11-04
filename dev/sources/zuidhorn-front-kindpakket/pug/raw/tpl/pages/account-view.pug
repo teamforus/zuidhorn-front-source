@@ -66,4 +66,4 @@ header.section.section-header: .wrapper
                     td 
                         strong € 
                         strong(ng-bind="transaction.amount | to_fixed:2")
-                    td(ng-bind="{success: 'Succes', 'pending-refund': 'Retour', refunded: 'Retour'}[transaction.status] || transaction.status")
+                    td(ng-bind="{success: 'Succes', 'refund': 'Retour', refunded: 'Retour'}[transaction.status] || transaction.status")
