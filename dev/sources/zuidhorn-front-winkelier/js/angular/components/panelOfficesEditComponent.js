@@ -148,11 +148,13 @@ shopkeeperApp.component('panelOfficesEditComponent', {
                         input.click();
                     }
 
-                    ((function(schedules) {
-                        for (var i = schedules.length - 1; i >= 0; i--) {
-                            ctrl.changeScheduleStart(schedules, i);
-                        }
-                    })(ctrl.form.office.values.schedules));
+                    $q(function() {
+                        ((function(schedules) {
+                            for (var i = schedules.length - 1; i >= 0; i--) {
+                                ctrl.changeScheduleStart(schedules, i);
+                            }
+                        })(ctrl.form.office.values.schedules));
+                    }, 100);
                 });
             };
         }

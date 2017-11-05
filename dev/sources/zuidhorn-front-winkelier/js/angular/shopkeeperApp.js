@@ -4,9 +4,12 @@ shopkeeperApp.config(['ApiRequestProvider', function(ApiRequestProvider) {
     ApiRequestProvider.setHost(env_data.apiUrl);
 }]);
 
-shopkeeperApp.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider) {
+shopkeeperApp.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function($stateProvider, $locationProvider, $urlRouterProvider) {
     if (env_data.html5Mode.enable)
         $locationProvider.html5Mode(true);
+
+    // For any unmatched url, send to 404
+    $urlRouterProvider.otherwise('/404');
 
     $stateProvider
         .state({
@@ -88,9 +91,9 @@ shopkeeperApp.config(['$stateProvider', '$locationProvider', function($stateProv
             component: 'responseCodeComponent',
             data: {
                 icon: 'icon-access.png',
-                title: "Access denied",
+                title: "Toegang geweigerd",
                 title_bg: 'ACCESS DENIED',
-                desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.",
+                desc: "U bent niet geautoriseerd om deze pagina te bekijken.",
             }
         });
 
@@ -102,9 +105,9 @@ shopkeeperApp.config(['$stateProvider', '$locationProvider', function($stateProv
             component: 'responseCodeComponent',
             data: {
                 icon: 'icon-404.png',
-                title: "Ooops... 404",
+                title: "Oeps... 404",
                 title_bg: 'PAGE NOT FOUND',
-                desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.",
+                desc: "De pagina die u zoekt is niet gevonden.",
             }
         });
 }]);

@@ -776,6 +776,7 @@ table.table {
         background-color: #f7f9fc;
         width: 100%;
         padding: 0px 0 100px;
+        overflow: hidden;
 
         .response-code {
             text-align: center;
@@ -1470,9 +1471,27 @@ table.table {
                 font-size: 200px;
             }
         }
+
+        &.section-response-code {
+            .response-code {
+                .response-code-bg-text {
+                    font-size: 160px;
+                    letter-spacing: -10px;
+                }
+            }
+        }
     }
 
     @media screen and (max-width: 1400px) {
+        &.section-response-code {
+            .response-code {
+                .response-code-bg-text {
+                    font-size: 90px;
+                    letter-spacing: -5px;
+                }
+            }
+        }
+
         &.section-auth .section-auth-header .header-row {
             position: relative;
 
@@ -1559,6 +1578,22 @@ table.table {
     }
 
     @media screen and (max-width: 1000px) {
+        &.section-response-code {
+            .response-code {
+                .response-code-inner {
+                    padding: 40px 0 20px;
+                }
+
+                .response-code-title {
+                    font-size: 36px;
+                }
+
+                .response-code-bg-text {
+                    display: none;
+                }
+            }
+        }
+
         &.section-landing-header {
             padding-top: 20px;
 
