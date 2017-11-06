@@ -14,6 +14,7 @@
 body {
     &.popup-open {
         overflow: hidden;
+        position: fixed;
     }
 }
 
@@ -936,7 +937,7 @@ table.table {
                 display: block;
                 @include fill_parent();
                 background-color: #000;
-                opacity: .4;
+                opacity: .05;
             }
         }
 
@@ -1678,6 +1679,7 @@ table.table {
                             background: none;
                             border: none;
                             height: 80px;
+                            box-shadow: none;
 
                             img {
                                 width: 90px;
@@ -2022,6 +2024,7 @@ table.table {
             position: fixed;
             transform: none;
             overflow: auto;
+            padding: 30px;
         }
 
         .popup-close {
@@ -2079,9 +2082,5 @@ table.table {
             padding: 10px;
             font-size: 12px;
         }
-    }
-
-    .office-li {
-
     }
 }
