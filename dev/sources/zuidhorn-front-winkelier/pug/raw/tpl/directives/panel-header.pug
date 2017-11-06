@@ -27,8 +27,8 @@ header.section.section-panel-header
                 br
                 span
                     strong Categorieën: 
-                    span(ng-repeat="category in shopkeeper_categories track by $index")
-                        | {{ category.name }}{{ $index < shopkeeper_categories.length - 1 ? ', ' : '' }}
+                    span(ng-repeat="category in $root.shopkeeper_categories track by $index")
+                        | {{ category.name }}{{ $index < $root.shopkeeper_categories.length - 1 ? ', ' : '' }}
         .panel-header-nav
             a(ui-sref="panel-offices" ng-class="{'active': $root.$state.current.name == 'panel-offices'}").panel-header-nav-it 
                 | Vestiging ({{ $root.count_offices }})
