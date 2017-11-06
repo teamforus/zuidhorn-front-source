@@ -36,7 +36,7 @@
                                 textarea(name="message" placeholder="Bericht" cols="30" rows="3" ng-model="forms.contact_form.values.message").form-control
                                 p(ng-repeat="error in forms.contact_form.errors.message track by $index" ng-bind="error").text-danger
                     
-                        button(type="submit" href="#").button.button-success.submit-button Verstuur Bericht
+                        button(type="submit").button.button-success.submit-button Verstuur Bericht
 
                     div(ng-show="forms.contact_form.success")
                         .row: .col.col-12: h2.text-primary.text-center Succes!
