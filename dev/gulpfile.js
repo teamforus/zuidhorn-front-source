@@ -282,7 +282,7 @@ var assets_compiler = function(source) {
         for (var i = list_assets.length - 1; i >= 0; i--) {
             streamCombiner(
                 gulp.src(list_assets[i].from),
-                plugins.newer(list_assets[i].to),
+                // plugins.newer(list_assets[i].to),
                 gulp.dest(list_assets[i].to)
             ).on('error', _doNotify);
         }
