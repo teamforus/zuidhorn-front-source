@@ -6,14 +6,50 @@
             var target = $root.attr('href');
 
             $root.unbind('click').bind('click', function() {
+                var offset = {
+                    y : parseInt($root.attr('offset-y') || 0)
+                };
+
                 $('html, body').animate({
-                    scrollTop: $(target).offset().top
-                }, 1600);
+                    scrollTop: Math.max(0, $(target).offset().top + offset.y)
+                }, 800);
+
+                setTimeout(function() {
+                    $(target).blink({
+                        blink_freq: 400,
+                        duration: 3000
+                    });
+                }, 800);
             });
         };
 
         for (var i = 0; i < this.length; i++) {
             new slowScroll($(this[i]));
+        }
+    };
+
+    $.prototype.blink = function(options) {
+        if (this.length == 0) return;
+
+        var blink = function($root, options) {
+            var interval = setInterval(function() {
+                options.duration -= options.blink_freq;
+
+                if (options.duration <= 0) {
+                    $root.css('opacity', 1);
+                    return clearInterval(interval);
+                }
+
+                if ($root.css('opacity') == 0) {
+                    $root.css('opacity', 1);
+                } else {
+                    $root.css('opacity', 0);
+                }
+            }, options.blink_freq);
+        };
+
+        for (var i = 0; i < this.length; i++) {
+            new blink($(this[i]), JSON.parse(JSON.stringify(options)));
         }
     };
 

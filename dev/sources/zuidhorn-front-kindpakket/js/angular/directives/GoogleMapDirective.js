@@ -21,7 +21,7 @@ kindpakketApp.directive('googleMap', [
                     var contentString = $element.attr("data-string");
                     var map, marker, infowindow;
                     var image = $element.attr("data-marker");
-                    var zoomLevel = parseInt($element.attr("data-zoom"), 8);
+                    var zoomLevel = 12;
                     var styledMap = new google.maps.StyledMapType($scope.style, {
                         name: "Styled Map"
                     });
@@ -29,7 +29,7 @@ kindpakketApp.directive('googleMap', [
                     var mapOptions = {
                         zoom: zoomLevel,
                         disableDefaultUI: false,
-                        center: office ? new google.maps.LatLng(office.lat, office.lon) : new google.maps.LatLng(-33.92, 151.25),
+                        center: new google.maps.LatLng(53.261723, 6.3950947),
                         scrollwheel: true,
                         fullscreenControl: false,
                         mapTypeControlOptions: {
@@ -39,8 +39,8 @@ kindpakketApp.directive('googleMap', [
 
                     map = new google.maps.Map(document.getElementById(obj), mapOptions);
 
-                    map.mapTypes.set('map_style', styledMap);
-                    map.setMapTypeId('map_style');
+                    // map.mapTypes.set('map_style', styledMap);
+                    // map.setMapTypeId('map_style');
 
                     infowindow = new google.maps.InfoWindow();
 

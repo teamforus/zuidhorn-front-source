@@ -41,6 +41,8 @@ kindpakketApp.component('landingComponent', {
                 e && e.stopPropagation() & e.preventDefault();
 
                 category.selected = !category.selected;
+
+                ctrl.updateOfficesCategory(e)
             };
 
             ctrl.updateOfficesCategory = function(e) {

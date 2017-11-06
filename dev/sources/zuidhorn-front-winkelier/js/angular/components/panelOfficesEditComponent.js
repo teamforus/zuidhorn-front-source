@@ -76,7 +76,7 @@ shopkeeperApp.component('panelOfficesEditComponent', {
                         } else {
                             if (!office.schedules[week_day].start_time)
                                 office.schedules[week_day].start_time = 'none';
-                            
+
                             if (!office.schedules[week_day].end_time)
                                 office.schedules[week_day].end_time = 'none';
                         }
@@ -85,7 +85,7 @@ shopkeeperApp.component('panelOfficesEditComponent', {
                     // fill profile form values
                     ctrl.form.office.fillValues(
                         office, ["email", "phone", "address", 'schedules']);
-                    
+
                     ctrl.changeScheduleStart = function(schedules, week_day) {
                         try {
                             if (schedules[week_day].start_time == 'none')

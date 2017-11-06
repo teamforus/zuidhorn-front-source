@@ -41,3 +41,15 @@
 .nano:hover > .nano-pane, .nano-pane.active, .nano-pane.flashed {
     background-color: rgba(255, 255, 255,.2);
 }
+
+a[href^="http://maps.google.com/maps"]{display:none !important}
+a[href^="https://maps.google.com/maps"]{display:none !important}
+
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+    display:none;
+}
+
+.pac-container:after {
+    background-image: none !important;
+    height: 0px;
+}

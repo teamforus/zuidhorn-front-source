@@ -16,7 +16,7 @@ header.section.section-header: .wrapper
     .section-header-inner(ng-show="!$root.credentials")
         a(href="./").logo: img(src="./assets/img/logo.svg", alt="")
         .section-header-actions
-            a(href="#" ng-click="$root.auth.activateVoucher($event)").button.button-success
+            a(href="#" ng-click="$root.auth.activateVoucher($event)").button.button-success#activate-button
                 em.mdi.mdi-ticket-confirmation
                 | Activatiecode
             a(href="#" ng-click="$root.auth.signIn($event)").button.button-white
@@ -54,15 +54,15 @@ header.section.section-header: .wrapper
                         strong.text-primary Openingstijden:
                         br
                         div
-                            span.br(ng-repeat="schedule in location.schedules track by $index")
-                                strong {{ ['MO', 'TU', 'WE', 'TH', 'FR'][$index] }}: 
-                                | {{ schedule.start_time }}-{{ schedule.end_time }}{{ $index < location.schedules.length - 1 ? ',' : '' }} 
+                            span.br(ng-repeat="schedule in (location.schedules | only_working_schedule) track by $index")
+                                strong {{ ['Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za', 'Zo'][$index] }}: 
+                                | {{ schedule.start_time }}-{{ schedule.end_time }}{{ $index < ((location.schedules | only_working_schedule)).length - 1 ? ',' : '' }} 
 
     .section-offices-map(google-map)
 
 .section.section-categories
     .wrapper
-        h1.section-header Kies de categorie van uw gewenste product om een overzicht te krijgen van de winkels die uw kindpakket voucher accepteren
+        h1.section-header Kies een of meerdere categorieën om het bovenstaande overzicht van deelnemende winkels te filteren
 
         .categories-list
             .categories-list-inner
@@ -72,7 +72,7 @@ header.section.section-header: .wrapper
                         .categories-item-radio
                         div(ng-bind="category.name").categories-item-title
             
-            .categories-list-actions
+            .categories-list-actions(ng-show="false")
                 a(href="#" ng-click="$ctrl.selectAll($event)").button.button-primary
                     em.mdi.mdi-chevron-double-right
                     | Selecteer Alles
@@ -85,30 +85,20 @@ header.section.section-header: .wrapper
     .how-it-works-inner
         h1#how-it-works.how-it-works-title Hoe het systeem werkt
         .how-it-works-list
-            .how-it-works-item 
-                em.how-it-works-item-number 1
-                | U heeft een brief van de gemeente ontvangen
-            .how-it-works-item 
-                em.how-it-works-item-number 2
-                | In deze brief staat uw activatiecode
-            .how-it-works-item 
-                em.how-it-works-item-number 3
-                | Via de acticatiecode knop op website wordt uw voucher geactiveerd.
-            .how-it-works-item 
-                em.how-it-works-item-number 4
-                | U ziet vervolgens uw budget 
-            .how-it-works-item 
-                em.how-it-works-item-number 5
-                | U print uw voucher uit of u mailt de voucher naar uzelf toe
-            .how-it-works-item 
-                em.how-it-works-item-number 6
-                | U kijkt vervolgens naar welke winkel(s) u wilt gaan
-            .how-it-works-item 
-                em.how-it-works-item-number 7
-                | U zoekt één of meerdere prodducten uit en de winkelier scant uw voucher
-            .how-it-works-item 
-                em.how-it-works-item-number 8
-                | De kosten worden direct in mindering gebracht op uw budget
+            mixin how_it_works_item(icon, title, title_nth, text)
+                .how-it-works-item 
+                    em.how-it-works-item-icon: img(
+                        src=(env_data.html5Mode.enable?env_data.html5Mode.basePath:'') + "assets/img/icon-steps/" + icon + ".png", alt="")
+                    h4.how-it-works-item-heading
+                        | #{title} 
+                        span.text-primary #{title_nth}
+                    | !{text}
+    
+            +how_it_works_item('icon-text', 'Step', '#1', 'U heeft een een brief ontvangen van de Gemeente. In deze brief staat een activatiecode. Deze hebt u nodig voor stap 2.')
+            +how_it_works_item('icon-login', 'Step', '#2', 'Op de website waar u zich nu bevindt klikt u, boven aan de pagina, op <a href="#activate-button" class="text-primary" slow-scroll offset-y="-40">de groene knop</a> en logt u in met de activatiecode.')
+            +how_it_works_item('icon-envelope', 'Step', '#3', 'U ontvangt een mail een QR-code (nodig voor stap 5) en een link naar overzichtspagina van het kindpakket.')
+            +how_it_works_item('icon-qr-code', 'Step', '#4', 'Op de overzichtspagina staan de winkels waar u met de QR-Code terecht kunt. Print de QR-Code uit, of zorg dat deze als plaatje op uw telefoon staat. De Qr-Code kunt u steeds opnieuw gebruiken.')
+            +how_it_works_item('icon-shop-check', 'Step', '#5', 'Ga naar de winkel naar keuze. Laat de QR-Codezien. U krijgt het product voor uw kind mee.')
 
 .section.section-faq: .wrapper
     mixin faq_item(nth, title, message)

@@ -26,8 +26,7 @@ div(panel-header)
                     br
                     span.br(ng-repeat="schedule in (office.schedules | only_working_schedule) track by $index")
                         strong {{ ['Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za', 'Zo'][$index] }}: 
-                        | {{ schedule.start_time }}-{{ schedule.end_time }}
-                        | {{ $index < ((office.schedules | only_working_schedule)).length - 1 ? ',' : '' }} 
+                        | {{ schedule.start_time }}-{{ schedule.end_time }}{{ $index < ((office.schedules | only_working_schedule)).length - 1 ? ',' : '' }} 
                 a(ui-sref="panel-offices-edit({id: office.id})").button.button-success.button-xs.hide-mobile
                     em.mdi.mdi-settings
                     | Bewerk

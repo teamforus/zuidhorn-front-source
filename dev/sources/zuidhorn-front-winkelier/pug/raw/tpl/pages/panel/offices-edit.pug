@@ -37,7 +37,7 @@ div(panel-header)
                 .col.col-12
                     .form-group
                         label.label Adres
-                        input(type="text" placeholder="Adres" ng-model="$ctrl.form.office.values.address").form-control
+                        input(type="text" placeholder="Adres" ng-model="$ctrl.form.office.values.address" google-address).form-control
                         p(ng-repeat="error in $ctrl.form.office.errors.address track by $index" ng-bind="error").text-danger
 
             .row: .col.col-12: .form-heading Openingstijden

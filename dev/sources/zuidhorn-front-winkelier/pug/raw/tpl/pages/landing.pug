@@ -23,6 +23,26 @@ div(auth-by-qr-code)
             .download-col
                 img(src="./assets/img/ios-mockup.png")
 
+.section.section-how-it-works
+    .bg-image
+    .how-it-works-inner
+        h1#how-it-works.how-it-works-title Hoe het systeem werkt
+        .how-it-works-list
+            mixin how_it_works_item(icon, title, title_nth, text)
+                .how-it-works-item 
+                    em.how-it-works-item-icon: img(
+                        src=(env_data.html5Mode.enable?env_data.html5Mode.basePath:'') + "assets/img/icon-steps/" + icon + ".png", alt="")
+                    h4.how-it-works-item-heading
+                        | #{title} 
+                        span.text-primary #{title_nth}
+                    | !{text}
+    
+            +how_it_works_item('icon-mob', 'Step', '#1', 'U download de app op uw telefoon en meld zich aan als winkelier.')
+            +how_it_works_item('icon-web-check', 'Step', '#2', 'De gemeente zal uw aanvraag in behandelingen nemen. Zodra u bent gevalideerd ontvang u een bevestiging.')
+            +how_it_works_item('icon-qr-code', 'Step', '#3', 'Vul uw winkeliers profiel in op deze website. U krijgt toegang tot uw profiel door boven aan deze pagina de QR-Code the scannen met de App.')
+            +how_it_works_item('icon-login', 'Step', '#4', 'Nadat u uw profiel heeft ingevuld zal u worden toegevoegd als winkelier op de Kindpakket website.')
+            +how_it_works_item('icon-funds', 'Step', '#5', 'Klanten zullen bij u langskomen en bij het afrekenen een QR-code presenteren. U kunt deze code met de app scannen en het te betalen bedrag afschrijven. Het geld zal automatisch worden bijgeschreven op uw bankrekening.')
+
 .section.section-faq: .wrapper
     mixin faq_item(nth, title, message)
         .faq-ul-li

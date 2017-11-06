@@ -374,6 +374,8 @@ body {
             }
         }
 
+        padding-top: 0px;
+        padding-bottom: 0px;
         padding-left: 15px;
         padding-right: 15px;
         margin-right: 10px;
@@ -782,8 +784,9 @@ table.table {
     }
 
     &.section-categories {
-        background: #f7f9fc;
+        background: #fff;
         padding: 30px 0;
+        border-top: 1px solid #d7dee6;
 
         .section-header {
             color: #083f49;
@@ -825,6 +828,7 @@ table.table {
             padding: 25px 25px 25px 50px;
             border-bottom: 1px solid #d7dee6;
             height: 100px;
+            cursor: default;
 
             h4 {
                 color: #083f49;
@@ -855,6 +859,7 @@ table.table {
             position: absolute;
             left: 0;
             height: 100%;
+            background-color: #f7f9fc;
 
             .section-panel {
                 margin: 0;
@@ -863,13 +868,34 @@ table.table {
                 padding-left: 50px;
                 cursor: pointer;
                 transition: background .4s;
+                border-bottom: 1px solid #d7dee6;
+                position: relative;
+                overflow: hidden;
+
+                &:after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    right: 0;
+                    width: 10px;
+                    background-color: #3396a7;
+                    opacity: 0;
+                    transition: .4s;
+                    transform: translate(10px);
+                }
 
                 &:first-child, &:first-of-type {
                     border-top: 0;
                 }
 
                 &:hover, &.active {
-                    background-color: #f6f6f6;
+                    &:after {
+                        opacity: 1;
+                        right: 0;
+                        transform: translate(0px);
+                    }
                 }
             }
         }
@@ -893,7 +919,7 @@ table.table {
         min-height: 300px;
         width: 100%;
         background-color: #f7f9fc;
-        border-bottom: 1px solid #d7dee6;
+        border-top: 1px solid #eceef1;
 
         .bg-image {
             background: url('../img/bg-how-it-works.jpg');
@@ -915,7 +941,7 @@ table.table {
         }
 
         .how-it-works-inner {
-            padding: 20px 50px 50px;
+            padding: 50px 50px 100px 100px;
 
             .how-it-works-title {
                 font: 400 36px/60px $bf;
@@ -943,18 +969,36 @@ table.table {
 
                 .how-it-works-item {
                     display: block;
-                    font: 600 17px/36px $bf;
+                    font: 600 15px/22px $bf;
                     margin-bottom: 40px;
                     position: relative;
                     cursor: default;
+                    color: #333;
+                    width: 550px;
+                    max-width: 100%;
 
-                    .how-it-works-item-number {
+                    a {
+                        font: inherit;
+                        text-decoration: underline;
+                    }
+
+                    .how-it-works-item-heading {
+                        font: 700 22px/45px $bf;
+                        margin: 0 0 20px;
+                        color: #083f49;
+
+                        span {
+                            font: inherit;
+                        }
+                    }
+
+                    .how-it-works-item-icon {
                         position: absolute;
-                        left: -50px;
+                        left: -100px;
                         transform: translate(-50%, -50%);
                         display: block;
-                        width: 50px;
-                        height: 50px;
+                        width: 115px;
+                        height: 115px;
                         line-height: 50px;
                         text-align: center;
                         background-color: #fff;
@@ -963,6 +1007,16 @@ table.table {
                         font-style: normal;
                         top: 50%;
                         transition: all .4s;
+                        box-shadow: 5px 5px 20px rgba(0,0,0,.1);
+
+                        img {
+                            display: block;
+                            width: 69px;
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                        }
                     }
 
                     &:hover {
@@ -1577,7 +1631,7 @@ table.table {
 
             .how-it-works-inner {
                 width: 100%;
-                padding: 20px;
+                padding: 30px;
 
                 .how-it-works-title {
                     font: 400 18px/32px $bf;
@@ -1592,21 +1646,42 @@ table.table {
                 .how-it-works-list {
                     .how-it-works-item {
                         margin-bottom: 20px;
-                        font: 600 14px/20px $bf;
+                        font: 500 14px/20px $bf;
                         position: relative;
-                        padding-left: 55px;
-                        padding-top: 5px;
+                        padding: 20px 0 0px;
                         min-height: 50px;
+                        color: #666;
+                        text-align: center;
 
-                        .how-it-works-item-number {
+                        .how-it-works-item-heading {
+                            padding: 15px 0;
+                            display: block;
+                            margin: auto;
+                            clear: both;
+                            text-align: center;
+                            font-size: 18px;
+                            line-height: 28px;
+                        }
+
+                        .how-it-works-item-icon {
                             font-size: 16px;
                             top: 0;
                             left: 0;
-                            width: 40px;
-                            height: 40px;
+                            height: 60px;
                             line-height: 40px;
                             float: left;
                             transform: translate(0, 0);
+                            position: relative;
+                            display: block;
+                            margin: auto;
+                            width: 100%;
+                            background: none;
+                            border: none;
+                            height: 80px;
+
+                            img {
+                                width: 90px;
+                            }
                         }
                     }
                 }
@@ -1666,15 +1741,15 @@ table.table {
 
             .section-offices-list-header {
                 background-color: #fff;
-                padding: 15px 25px;
+                padding: 15px 20px;
                 height: 75px;
 
                 h4 {
-                    font: 600 16px/24px $bf;
+                    font: 600 15px/24px $bf;
                 }
 
                 small {
-                    font: 400 12px/18px $bf;
+                    font: 400 11px/18px $bf;
                 }
             }
 
@@ -1684,11 +1759,11 @@ table.table {
 
             .section-offices-list, 
             .section-offices-map {
-                right: 25px;
                 width: auto;
                 left: 0;
+                right: 0;
                 height: 50%;
-                border-right: 1px solid #d7dee6;
+                border-right: none;
                 border-bottom: 1px solid #d7dee6;
             }
 
@@ -1711,6 +1786,13 @@ table.table {
                         .office-li-description {
                             font: 400 11px/17px $bf;
                         }
+                    }
+
+                    &:after {
+                        right: auto;
+                        left: 0;
+                        width: 5px;
+                        transform: translate(-5px);
                     }
                 }
             }
@@ -1971,6 +2053,11 @@ table.table {
 
     .hide-mobile {
         display: none;
+    }
+
+    .wrapper {
+        padding-left: 25px;
+        padding-right: 25px;
     }
 
     .row {

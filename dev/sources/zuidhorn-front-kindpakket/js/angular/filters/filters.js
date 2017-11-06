@@ -9,3 +9,11 @@ kindpakketApp.filter('to_fixed', function() {
         return parseFloat(_in).toFixed(size);
     }
 });
+
+kindpakketApp.filter('only_working_schedule', ['$filter', function($filter) {
+    return function(_in) {
+        return _in.filter(function(schedule) {
+            return schedule.start_time;
+        });
+    }
+}]);

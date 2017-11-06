@@ -958,10 +958,131 @@ table.table {
         }
     }
 
+    &.section-how-it-works {
+        position: relative;
+        padding-left: 33.333%;
+        min-height: 300px;
+        width: 100%;
+        background-color: #f7f9fc;
+        border-top: 1px solid #eceef1;
+
+        .bg-image {
+            background: url('../img/bg-how-it-works.jpg');
+            background-size: cover;
+            background-position: 50%;
+            position: absolute;
+            width: 33.333%;
+            left: 0;
+            top: 0;
+            height: 100%;
+
+            &:before {
+                content: '';
+                display: block;
+                @include fill_parent();
+                background-color: #000;
+                opacity: .4;
+            }
+        }
+
+        .how-it-works-inner {
+            padding: 50px 50px 100px 100px;
+
+            .how-it-works-title {
+                font: 400 36px/60px $bf;
+                color: #083f49;
+                padding: 0 0 10px;
+                position: relative;
+                display: block;
+                margin: 0 0 30px;
+
+                &:after {
+                    content: '';
+                    display: block;
+                    background-color: #70c567;
+                    position: absolute;
+                    width: 70px;
+                    height: 3px;
+                    bottom: 0;
+                    left: 0;
+                    position: absolute;
+                }
+            }
+
+            .how-it-works-list {
+                display: block;
+
+                .how-it-works-item {
+                    display: block;
+                    font: 600 15px/22px $bf;
+                    margin-bottom: 40px;
+                    position: relative;
+                    cursor: default;
+                    color: #333;
+                    width: 550px;
+                    max-width: 100%;
+
+                    a {
+                        font: inherit;
+                        text-decoration: underline;
+                    }
+
+                    .how-it-works-item-heading {
+                        font: 700 22px/45px $bf;
+                        margin: 0 0 20px;
+                        color: #083f49;
+
+                        span {
+                            font: inherit;
+                        }
+                    }
+
+                    .how-it-works-item-icon {
+                        position: absolute;
+                        left: -100px;
+                        transform: translate(-50%, -50%);
+                        display: block;
+                        width: 115px;
+                        height: 115px;
+                        line-height: 50px;
+                        text-align: center;
+                        background-color: #fff;
+                        border: 1px solid #70c567;
+                        border-radius: 50%;
+                        font-style: normal;
+                        top: 50%;
+                        transition: all .4s;
+                        box-shadow: 5px 5px 20px rgba(0,0,0,.1);
+
+                        img {
+                            display: block;
+                            width: 69px;
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+
+                    &:hover {
+                        .how-it-works-item-number {
+                            background-color: #70c567;
+                            color: #fff;
+                        }
+                    }
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+
     &.section-download-app {
         width: 100%;
         position: relative;
-        background-color: #f7f9fc;
+        background-color: #fff;
         min-height: 400px;
 
         .bg-text {
@@ -1600,6 +1721,72 @@ table.table {
             .logo {
                 width: 140px;
                 margin-bottom: 20px;
+            }
+        }
+
+        &.section-how-it-works {
+            padding: 0;
+
+            .bg-image {
+                display: none;
+            }
+
+            .how-it-works-inner {
+                width: 100%;
+                padding: 30px;
+
+                .how-it-works-title {
+                    font: 400 18px/32px $bf;
+                    text-align: center;
+
+                    &:after {
+                        left: 50%;
+                        transform: translate(-50%);
+                    }
+                }
+
+                .how-it-works-list {
+                    .how-it-works-item {
+                        margin-bottom: 20px;
+                        font: 500 14px/20px $bf;
+                        position: relative;
+                        padding: 20px 0 0px;
+                        min-height: 50px;
+                        color: #666;
+                        text-align: center;
+
+                        .how-it-works-item-heading {
+                            padding: 15px 0;
+                            display: block;
+                            margin: auto;
+                            clear: both;
+                            text-align: center;
+                            font-size: 18px;
+                            line-height: 28px;
+                        }
+
+                        .how-it-works-item-icon {
+                            font-size: 16px;
+                            top: 0;
+                            left: 0;
+                            height: 60px;
+                            line-height: 40px;
+                            float: left;
+                            transform: translate(0, 0);
+                            position: relative;
+                            display: block;
+                            margin: auto;
+                            width: 100%;
+                            background: none;
+                            border: none;
+                            height: 80px;
+
+                            img {
+                                width: 90px;
+                            }
+                        }
+                    }
+                }
             }
         }
 
